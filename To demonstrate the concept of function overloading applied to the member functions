@@ -1,0 +1,32 @@
+#include <iostream>
+#include <string>
+
+class Calculator {
+public:
+   int add(int a, int b) {
+       return a + b;
+   }
+
+   int add(int a, int b, int c) {
+       return a + b + c;
+   }
+
+   std::string add(const std::string& s1, const std::string& s2) {
+       return s1 + s2;
+   }
+};
+
+int main() {
+   Calculator calc;
+
+   int sum1 = calc.add(5, 10);
+   std::cout << "Sum of two integers: " << sum1 << std::endl;
+
+   int sum2 = calc.add(5, 10, 15);
+   std::cout << "Sum of three integers: " << sum2 << std::endl;
+
+   std::string combinedString = calc.add("Hello, ", "World!");
+   std::cout << "Combined string: " << combinedString << std::endl;
+
+   return 0;
+}
