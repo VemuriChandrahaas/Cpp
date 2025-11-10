@@ -1,0 +1,22 @@
+#include <iostream>
+class Box {
+public:
+    Box(int length) {
+        this->length = length;
+        std::cout << "Constructor for a box of length " << length << " is called." << std::endl;
+    }
+    ~Box() {
+        std::cout << "Destructor for a box of length " << length << " is called." << std::endl;
+    }
+private:
+    int length;
+};
+int main() {
+    Box* myBox = new Box(5);
+    delete myBox;
+    myBox = nullptr;
+    Box* boxArray = new Box[3]{Box(1), Box(2), Box(3)};
+    delete[] boxArray;
+    boxArray = nullptr;
+    return 0;
+}
