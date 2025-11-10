@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+class Point {
+private:
+    int x, y;
+public:
+    Point(int x_coord = 0, int y_coord = 0) {
+        x = x_coord;
+        y = y_coord;
+    }
+    friend Point operator-(const Point& p);
+    void display() {
+        cout << "Point(" << x << ", " << y << ")" << endl;
+    }
+};
+
+Point operator-(const Point& p) {
+    return Point(-p.x, -p.y);
+}
+
+int main() {
+    Point p1(10, -20);
+    Point p2 = -p1;
+    cout << "Original point p1: ";
+    p1.display();
+    cout << "Negated point p2: ";
+    p2.display();
+    return 0;
+}
