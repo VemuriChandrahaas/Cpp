@@ -1,0 +1,21 @@
+#include <iostream>
+
+class MyClass {
+public:
+    int value;
+    MyClass(int v) : value(v) {}
+};
+
+// Function that takes an object by value
+void modifyObjectByValue(MyClass obj) {
+    obj.value = 100; // Modifies the copy, not the original
+    std::cout << "Inside function (by value): " << obj.value << std::endl;
+}
+
+int main() {
+    MyClass originalObj(10);
+    std::cout << "Original object before call: " << originalObj.value << std::endl;
+    modifyObjectByValue(originalObj);
+    std::cout << "Original object after call: " << originalObj.value << std::endl; // Still 10
+    return 0;
+}
