@@ -1,0 +1,34 @@
+
+#include <iostream>
+using namespace std;
+
+class Base {
+protected:
+    int a;
+public:
+    void getA() { cout << "Enter A: "; cin >> a; }
+};
+
+class Derived : public Base {
+    int b;
+public:
+    void getB() { cout << "Enter B: "; cin >> b; }
+    void display() { cout << "Sum: " << a + b << endl; }
+};
+
+int main() {
+    Derived d;
+    d.getA();
+    d.getB();
+    d.display();
+    return 0;
+}
+Output:
+Enter value of a: 5
+Enter value of b: 7
+Sum = 12
+
+
+Result:
+Single public inheritance was successfully implemented.
+Derived class accessed base members as per visibility rules.
