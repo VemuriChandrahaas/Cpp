@@ -1,8 +1,0 @@
-#include <iostream>
-int main() {
-    int* ptr_int = new int(10);
-    std::cout << "Value of dynamically allocated integer: " << *ptr_int << std::endl;
-    delete ptr_int;
-    ptr_int = nullptr;
-    return 0;
-}
