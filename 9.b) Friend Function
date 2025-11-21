@@ -1,26 +1,36 @@
+
 #include <iostream>
 using namespace std;
 
-class base {
-private:
-    int private_variable;
-protected:
-    int protected_variable;
+class B; 
+class A {
+    int x;
 public:
-    base() {
-        private_variable = 10;
-        protected_variable = 99;
-    }
-    friend void friendFunction(base& obj);
+    A() { x = 10; }
+    friend void show(A, B);
 };
 
-void friendFunction(base& obj) {
-    cout << "Private Variable: " << obj.private_variable << endl;
-    cout << "Protected Variable: " << obj.protected_variable;
+class B {
+    int y;
+public:
+    B() { y = 20; }
+    friend void show(A, B);
+};
+
+void show(A a, B b) {
+    cout << "Sum = " << a.x + b.y << endl;
 }
 
 int main() {
-    base object1;
-    friendFunction(object1);
+    A a;
+    B b;
+    show(a, b);
     return 0;
 }
+Output:
+Sum = 30
+
+
+Result:
+Friend function accessed private data of both classes.
+The sum was calculated successfully.
